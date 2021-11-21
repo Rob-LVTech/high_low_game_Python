@@ -30,15 +30,19 @@ guessCount = 0  # Using this to keep track of the user's guesses
 
 keepGuessing = True
 while keepGuessing:  # Asks for the users guess and passes it to our two functions
+	print('')
 	userGuess = int(input('Guess a number between {} and {}:'.format(lowerBound, upperBound)))
-	guessCount += 1
-	if correct_number(userGuess):  # If the user guesses correctly, exit the loop
-		keepGuessing = False
-	else:  # If the user guesses incorrectly, call the function that prints higher or lower and restart loop
-		higher_or_lower(userGuess)
+	if lowerBound <= userGuess <= upperBound:
+		guessCount += 1
+		if correct_number(userGuess):  # If the user guesses correctly, exit the loop
+			keepGuessing = False
+		else:  # If the user guesses incorrectly, call the function that prints higher or lower and restart loop
+			higher_or_lower(userGuess)
+	else:
+		print('Please stay within the numbers given!')
 
 
-def statement_ending(count):
+def statement_ending(count):  # Checks the number of guesses to see if it should say guess or guesses
 	if count == 1:
 		return '{} guess'.format(count)
 	else:
