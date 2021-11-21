@@ -38,11 +38,12 @@ while keepGuessing:  # Asks for the users guess and passes it to our two functio
 		higher_or_lower(userGuess)
 
 
-def statementEnding(guessCount):
-	if guessCount == 1:
-		return '{} guess'.format(guessCount)
+def statement_ending(count):
+	if count == 1:
+		return '{} guess'.format(count)
 	else:
-		return '{} guesses'.format(guessCount)
+		return '{} guesses'.format(count)
 
 
-print('You got it! The number was {}! You got it in {}!'.format(targetNumber, statementEnding(guessCount)))  # When guessed correctly, we let the user know
+# When guessed correctly, we let the user know
+print('You got it! The number was {}! You got it in {}!'.format(targetNumber, statement_ending(guessCount)))
